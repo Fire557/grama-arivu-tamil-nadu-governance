@@ -9,38 +9,206 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as LearningRouteImport } from './routes/learning'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VolunteerIndexRouteImport } from './routes/volunteer.index'
+import { Route as OfficialIndexRouteImport } from './routes/official.index'
+import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
+import { Route as OfficialUploadRouteImport } from './routes/official.upload'
+import { Route as CitizenSettingsRouteImport } from './routes/citizen.settings'
+import { Route as CitizenComplaintsRouteImport } from './routes/citizen.complaints'
+import { Route as OfficialComplaintIdRouteImport } from './routes/official.complaint.$id'
+import { Route as CitizenComplaintNewRouteImport } from './routes/citizen.complaint.new'
 
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningRoute = LearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VolunteerIndexRoute = VolunteerIndexRouteImport.update({
+  id: '/volunteer/',
+  path: '/volunteer/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfficialIndexRoute = OfficialIndexRouteImport.update({
+  id: '/official/',
+  path: '/official/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenIndexRoute = CitizenIndexRouteImport.update({
+  id: '/citizen/',
+  path: '/citizen/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfficialUploadRoute = OfficialUploadRouteImport.update({
+  id: '/official/upload',
+  path: '/official/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenSettingsRoute = CitizenSettingsRouteImport.update({
+  id: '/citizen/settings',
+  path: '/citizen/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenComplaintsRoute = CitizenComplaintsRouteImport.update({
+  id: '/citizen/complaints',
+  path: '/citizen/complaints',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfficialComplaintIdRoute = OfficialComplaintIdRouteImport.update({
+  id: '/official/complaint/$id',
+  path: '/official/complaint/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenComplaintNewRoute = CitizenComplaintNewRouteImport.update({
+  id: '/citizen/complaint/new',
+  path: '/citizen/complaint/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/learning': typeof LearningRoute
+  '/search': typeof SearchRoute
+  '/citizen/complaints': typeof CitizenComplaintsRoute
+  '/citizen/settings': typeof CitizenSettingsRoute
+  '/official/upload': typeof OfficialUploadRoute
+  '/citizen/': typeof CitizenIndexRoute
+  '/official/': typeof OfficialIndexRoute
+  '/volunteer/': typeof VolunteerIndexRoute
+  '/citizen/complaint/new': typeof CitizenComplaintNewRoute
+  '/official/complaint/$id': typeof OfficialComplaintIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/learning': typeof LearningRoute
+  '/search': typeof SearchRoute
+  '/citizen/complaints': typeof CitizenComplaintsRoute
+  '/citizen/settings': typeof CitizenSettingsRoute
+  '/official/upload': typeof OfficialUploadRoute
+  '/citizen': typeof CitizenIndexRoute
+  '/official': typeof OfficialIndexRoute
+  '/volunteer': typeof VolunteerIndexRoute
+  '/citizen/complaint/new': typeof CitizenComplaintNewRoute
+  '/official/complaint/$id': typeof OfficialComplaintIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/learning': typeof LearningRoute
+  '/search': typeof SearchRoute
+  '/citizen/complaints': typeof CitizenComplaintsRoute
+  '/citizen/settings': typeof CitizenSettingsRoute
+  '/official/upload': typeof OfficialUploadRoute
+  '/citizen/': typeof CitizenIndexRoute
+  '/official/': typeof OfficialIndexRoute
+  '/volunteer/': typeof VolunteerIndexRoute
+  '/citizen/complaint/new': typeof CitizenComplaintNewRoute
+  '/official/complaint/$id': typeof OfficialComplaintIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/learning'
+    | '/search'
+    | '/citizen/complaints'
+    | '/citizen/settings'
+    | '/official/upload'
+    | '/citizen/'
+    | '/official/'
+    | '/volunteer/'
+    | '/citizen/complaint/new'
+    | '/official/complaint/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/learning'
+    | '/search'
+    | '/citizen/complaints'
+    | '/citizen/settings'
+    | '/official/upload'
+    | '/citizen'
+    | '/official'
+    | '/volunteer'
+    | '/citizen/complaint/new'
+    | '/official/complaint/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/learning'
+    | '/search'
+    | '/citizen/complaints'
+    | '/citizen/settings'
+    | '/official/upload'
+    | '/citizen/'
+    | '/official/'
+    | '/volunteer/'
+    | '/citizen/complaint/new'
+    | '/official/complaint/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  LearningRoute: typeof LearningRoute
+  SearchRoute: typeof SearchRoute
+  CitizenComplaintsRoute: typeof CitizenComplaintsRoute
+  CitizenSettingsRoute: typeof CitizenSettingsRoute
+  OfficialUploadRoute: typeof OfficialUploadRoute
+  CitizenIndexRoute: typeof CitizenIndexRoute
+  OfficialIndexRoute: typeof OfficialIndexRoute
+  VolunteerIndexRoute: typeof VolunteerIndexRoute
+  CitizenComplaintNewRoute: typeof CitizenComplaintNewRoute
+  OfficialComplaintIdRoute: typeof OfficialComplaintIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning': {
+      id: '/learning'
+      path: '/learning'
+      fullPath: '/learning'
+      preLoaderRoute: typeof LearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +216,78 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/volunteer/': {
+      id: '/volunteer/'
+      path: '/volunteer'
+      fullPath: '/volunteer/'
+      preLoaderRoute: typeof VolunteerIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/official/': {
+      id: '/official/'
+      path: '/official'
+      fullPath: '/official/'
+      preLoaderRoute: typeof OfficialIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/': {
+      id: '/citizen/'
+      path: '/citizen'
+      fullPath: '/citizen/'
+      preLoaderRoute: typeof CitizenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/official/upload': {
+      id: '/official/upload'
+      path: '/official/upload'
+      fullPath: '/official/upload'
+      preLoaderRoute: typeof OfficialUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/settings': {
+      id: '/citizen/settings'
+      path: '/citizen/settings'
+      fullPath: '/citizen/settings'
+      preLoaderRoute: typeof CitizenSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/complaints': {
+      id: '/citizen/complaints'
+      path: '/citizen/complaints'
+      fullPath: '/citizen/complaints'
+      preLoaderRoute: typeof CitizenComplaintsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/official/complaint/$id': {
+      id: '/official/complaint/$id'
+      path: '/official/complaint/$id'
+      fullPath: '/official/complaint/$id'
+      preLoaderRoute: typeof OfficialComplaintIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen/complaint/new': {
+      id: '/citizen/complaint/new'
+      path: '/citizen/complaint/new'
+      fullPath: '/citizen/complaint/new'
+      preLoaderRoute: typeof CitizenComplaintNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  LearningRoute: LearningRoute,
+  SearchRoute: SearchRoute,
+  CitizenComplaintsRoute: CitizenComplaintsRoute,
+  CitizenSettingsRoute: CitizenSettingsRoute,
+  OfficialUploadRoute: OfficialUploadRoute,
+  CitizenIndexRoute: CitizenIndexRoute,
+  OfficialIndexRoute: OfficialIndexRoute,
+  VolunteerIndexRoute: VolunteerIndexRoute,
+  CitizenComplaintNewRoute: CitizenComplaintNewRoute,
+  OfficialComplaintIdRoute: OfficialComplaintIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
